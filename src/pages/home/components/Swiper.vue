@@ -8,7 +8,6 @@
     	<img
     	class="swiper-img"
     	:src="item.imgUrl">
-
     </swiper-slide>
 
     <!-- 用来显示分页的 -->
