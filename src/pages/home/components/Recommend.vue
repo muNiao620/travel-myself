@@ -6,7 +6,7 @@
 		<ul class="ul-left">
 			<li
 				class="item border-bottom"
-				v-for="(item, index) of recemmendList"
+				v-for="(item, index) of list"
 				:key='index'>
 				<img
 					class="item-mg"
@@ -32,30 +32,14 @@
 <script>
 export default {
 	name: 'HomeRecommend',
-	data () {
-		return {
-			recemmendList: [{
-				id: '0001',
-				imgUrl: 'http://img1.qunarzz.com/sight/p0/1907/40/401b7b735008f7f4a3.img.jpg_200x200_10ce515e.jpg',
-				title: '故宫',
-				desc: '东方宫殿建筑代表，世界宫殿建筑典范'
-			},{
-				id: '0002',
-				imgUrl: 'http://img1.qunarzz.com/sight/p0/1907/40/401b7b735008f7f4a3.img.jpg_200x200_10ce515e.jpg',
-				title: '故宫',
-				desc: '东方宫殿建筑代表，世界宫殿建筑典范'
-			},{
-				id: '0003',
-				imgUrl: 'http://img1.qunarzz.com/sight/p0/1907/40/401b7b735008f7f4a3.img.jpg_200x200_10ce515e.jpg',
-				title: '故宫',
-				desc: '东方宫殿建筑代表，世界宫殿建筑典范'
-			}]
-		}
+	props: {
+		list: Array
 	}
 }
 </script>
 
 <style lang="stylus" scoped>
+	@import '~styles/mixins.styl'
 	.title
 		margin-top: .2rem
 		line-height: .8rem
@@ -77,12 +61,15 @@ export default {
 				flex: 1
 				padding-left: .22rem
 				height: 2.4rem
+				// 使多余的文本用3个点表示
+				min-width: 0
 				.item-title
 					padding: .2rem 0
 					font-size: .32rem
 				.item-desc
 					color: #ccc
 					padding: .2rem 0
+					ellipsis() 
 				.item-button
 					background: #ff9300
 					padding: 0 .2rem

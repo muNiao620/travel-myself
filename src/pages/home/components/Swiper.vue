@@ -1,9 +1,10 @@
 <template>
   <div class="wrapper">
     <swiper
-    :options="swiperOption">
+    :options="swiperOption"
+    v-if="showSwiper">
     <swiper-slide
-    v-for="item of swiperList"
+    v-for="item of list"
     :key="item.id">
     	<img
     	class="swiper-img"
@@ -25,16 +26,16 @@ export default {
   			pagination: ".swiper-pagination",
   			// 轮播插件支持循环轮播
   			loop: true
-  		},
-  		swiperList: [{
-  			id: "0001",
-  			imgUrl: "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20198/083c708a3949958bcbca0fcc0ea3d57f.jpg_750x200_e47acfc7.jpg"
-  		}, {
-  			id: "0002",
-  			imgUrl: "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20198/cad43eb25efc11ed763a0cded45a6bcf.jpg_750x200_3374a9eb.jpg"
-  		}]
+  		}
   	}
-  	
+  },
+  props: {
+    list: Array
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length
+    }
   }
 }
 </script>
@@ -48,7 +49,7 @@ export default {
 		overflow: hidden
 		width: 100%
 		height: 0
-		padding-bottom: 26.4%
+		padding-bottom: 31.2%
 		.swiper-img
 			width: 100%
 			
