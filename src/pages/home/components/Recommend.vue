@@ -51,8 +51,6 @@ export default {
 			overflow: hidden
 			display: flex
 			height: 2.4rem
-			// background: red
-			// margin-top: .2rem
 			.item-mg
 				height: 2rem
 				width: 2rem
