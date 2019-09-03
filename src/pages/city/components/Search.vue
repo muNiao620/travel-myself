@@ -20,6 +20,7 @@ export default {
 		padding: 0 .1rem
 		background: $bgColor
 		.search-input
+			// border-box 告诉浏览器去理解你设置的边框和内边距的值是包含在width内的
 			box-sizing: border-box
 			width: 100%
 			padding: 0 .1rem
