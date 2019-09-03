@@ -20,11 +20,7 @@ export default {
 		padding: 0 .1rem
 		background: $bgColor
 		.search-input
-<<<<<<< HEAD
-			// border-box 告诉浏览器去理解你设置的边框和内边距的值是包含在width内的
-=======
     // border-box 告诉浏览器去理解你设置的边框和内边距的值是包含在width内的
->>>>>>> 41e584c7d21fe7e68c7c4af8da2b6a7d5cf54023
 			box-sizing: border-box
 			width: 100%
 			padding: 0 .1rem
