@@ -1,6 +1,6 @@
 <template>
 	<div class="icons">
-		<swiper>
+		<swiper :options="swiperOption">
       <swiper-slide
       	v-for="(page, index) of pages"
       	:key="index">
@@ -17,7 +17,9 @@
 				</div>
       </swiper-slide>
     <!-- 用来显示分页的 -->
-    <div class="swiper-pagination"  slot="pagination"></div>
+    <div
+    	class="swiper-pagination"
+    	slot="pagination"></div>
   	</swiper>
 	</div>
 </template>
