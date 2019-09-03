@@ -4,8 +4,11 @@
 		<CitySearch/>
 		<CityList
 			:cities="cities"
-			:hotCities="hotCities"/>
-		<CityAlphabet :cities="cities"/>
+			:hotCities="hotCities"
+			:letter="letter"/>
+		<CityAlphabet
+		:cities="cities"
+		@change="handleLetterChange"/>
 	</div>
 </template>
 
@@ -26,7 +29,8 @@ export default {
 	data () {
 		return {
 			cities: {},
-			hotCities: []
+			hotCities: [],
+			letter: ''
 		}
 	},
 	methods: {
@@ -35,13 +39,15 @@ export default {
 				.then(this.handleGetCityInfoSucc)
 		},
 		handleGetCityInfoSucc (res) {
-			console.log(res)
 			res = res.data
 			if (res.ret && res.data) {
 				const data = res.data
 				this.cities = data.cities
 				this.hotCities = data.hotCities
 			}
+		},
+		handleLetterChange (letter) {
+			this.letter = letter
 		}
 	},
 	mounted () {

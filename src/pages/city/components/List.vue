@@ -2,13 +2,13 @@
 	<div class="list" ref='wrapper'>
 		<div>
 			<div class="area">
-			<div class="title border-topbottom">当前城市</div>
-			<div class="button-list">
-				<div
-					class="button-wrapper">
-					<div class="button">北京</div>
+				<div class="title border-topbottom">当前城市</div>
+				<div class="button-list">
+					<div
+						class="button-wrapper">
+						<div class="button">北京</div>
+					</div>
 				</div>
-			</div>
 			</div>
 		<div class="area">
 			<div class="title border-topbottom">热门城市</div>
@@ -24,7 +24,8 @@
 		<div
 			class="area"
 			v-for="(item, key) of cities"
-			:key="key">
+			:key="key"
+			:ref="key">
 			<div class="title border-topbottom">{{key}}</div>
 			<div class="item-list">
 				<div
@@ -43,10 +44,22 @@ export default {
 	name: 'CityList',
 	props: {
 		cities: Object,
-		hotCities: Array
+		hotCities: Array,
+		// 此处letter是Alphabet组件传过来点击的字母,传到city组件，再从city组件传到list组件
+		letter: String
 	},
 	mounted () {
 		this.scroll = new Bscroll(this.$refs.wrapper)
+	},
+	watch: {
+		// 点击事件监听letter是否改变，
+		letter () {
+			if (this.letter) {
+				const element = this.$refs[this.letter][0]
+				// scrollToElement只能获取dom元素，然后滚轮滚到相对应的元素，是插件自带的方法
+				this.scroll.scrollToElement(element)
+			}
+		}
 	}
 }
 </script>
