@@ -32,6 +32,7 @@ export default {
 		}
 	},
 	methods: {
+		// 用来得到移动的距离（与顶部的距离），进而通过判断距离来显示或者一次头部
 		handleScroll () {
 			// 顶部距离
 			const top = document.documentElement.scrollTop
@@ -49,8 +50,12 @@ export default {
 			// console.log(document.documentElement.scrollTop)
 		}
 	},
-	// 用来得到移动的距离（与顶部的距离），进而通过判断距离来显示或者一次头部
+	// 绑定事件到全局对象上，这样无论是在哪个组件上都会触发这个函数，所以需要解绑，钩子函数deactivated
 	activated () {
+		window.addEventListener('scroll', this.handleScroll)
+	},
+	// 解绑
+	deactivated () {
 		window.addEventListener('scroll', this.handleScroll)
 	}
 }
@@ -72,6 +77,7 @@ export default {
 			color: #fff
 			font-size: .4rem
 	.header-fixed
+		z-index: 2
 		position: fixed
 		left: 0
 		top: 0
