@@ -1,6 +1,8 @@
 <template>
 	<div>
-		<HomeHeader :city="city"/>
+		<!-- 通过ajax请求的数据传过来的，数据在后端存储 -->
+		<!-- <HomeHeader :city="city"/> -->
+		<HomeHeader/>
 		<HomeSwiper :list="swiperList"/>
 		<HomeIcons :list="iconList"/>
 		<HomeRecommend :list="recommendList"/>
@@ -26,7 +28,7 @@ export default {
 	},
 	data () {
 		return {
-			city: '',
+			// city: '',
 			swiperList: [],
 			iconList: [],
 			recommendList: [],
@@ -45,7 +47,7 @@ export default {
 			//判断里面的ret和data是否存在
 			if (res.ret && res.data) {
 				const data = res.data
-				this.city = data.city
+				// this.city = data.city
 				this.swiperList = data.swiperList
 				this.iconList = data.iconList
 				this.recommendList = data.recommendList

@@ -7,6 +7,8 @@ import router from './router'
 import fastClick from 'fastClick'
 // 导入轮播插件
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+// vuex的引用
+import store from './store'
 // 设置每个页面的基础样式,styles是配置的路径别名
 import 'styles/reset.css'
 // 解决多倍屏里面1px边框变成多像素的问题
@@ -25,6 +27,7 @@ Vue.use(VueAwesomeSwiper)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

@@ -10,7 +10,11 @@
 		</div>
 		<router-link to="/City">
 			<div class="header-right">
-				{{this.city}}
+				<!-- {{this.city}} -->
+				<!-- {{this.$store.state.city}} -->
+				<!-- {{this.city}} -->
+				<!-- 显示两个地方 -->
+				{{this.doubleCity}}
 				<span class="iconfont arrow-icon">&#xe64a;</span>
 			</div>
 		</router-link>
@@ -18,11 +22,18 @@
 </template>
 
 <script>
+// vuex中的高级api,用来插值
+import { mapState, mapGetters } from 'vuex'
 export default {
 	name: 'HomeHeader',
-	props: {
-		city: String
+	computed: {
+		// ...表示扩展运算符，表示把mapState中city映射到计算属性当中
+		...mapState(['city']),
+		...mapGetters(['doubleCity'])
 	}
+	// props: {
+	// 	city: String
+	// }
 }
 </script>
 

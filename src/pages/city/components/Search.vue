@@ -17,6 +17,7 @@
 					v-for="item of list"
 					class="search-item border-bottm"
 					:key="item.id"
+					@click="handleCityClick(item.name)"
 					>{{item.name}}</li>
 					<!-- v-show="hasNoData"找不到内容时，列表长度不存在就显示，找的到说明有内容就隐藏 -->
 				<li
@@ -30,6 +31,8 @@
 
 <script>
 import Bscroll from 'better-scroll'
+// vuex中的高级api,用来插值
+import { mapState, mapMutations } from 'vuex'
 export default {
 	name: 'CitySearch',
 	props: {
@@ -41,6 +44,19 @@ export default {
 			list: [],
 			timer: null
 		}
+	},
+	methods: {
+		handleCityClick (city) {
+			// changeCity表示图片中的actions
+			// this.$store.dispatch('changeCity', city)
+			// 没有异步操作,操作简单，没有批量操作，可以直接调用mutations
+			// this.$store.commit('changeCity', city)
+			this.changeCity(city)
+			// vue里两种跳转：第一是router-link,第二是router的实例方法router.push
+			// vue的第二种编程式导航，跳转
+			this.$router.push('/')
+		},
+		...mapMutations (['changeCity'])
 	},
 	computed: {
 		hasNoData () {
