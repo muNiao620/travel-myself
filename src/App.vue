@@ -5,6 +5,8 @@
   	<!-- exclude="Detail"表示除了Detail（Detail页面的name值）详情页面不会被缓存，其他页面都缓存 也可以通过钩子函数activated来实现相同的功能-->
   	
   	<!-- name值的相关用法：1.可以用来递归 2.可以用来对页面取消缓存 3.vue-tools显示的内容就是name值 -->
+
+    <!-- 注意： 这个地方用了exclude="Detail"后，详情页中的header.vue中的渐隐渐现下拉时出不来，有待解决 -->
   	<keep-alive exclude="Detail">
   		<!-- 显示当前地址所对应的内容 -->
     	<router-view/>

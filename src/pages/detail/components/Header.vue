@@ -53,6 +53,7 @@ export default {
 	// 绑定事件到全局对象上，这样无论是在哪个组件上都会触发这个函数，所以需要解绑，钩子函数deactivated
 	activated () {
 		window.addEventListener('scroll', this.handleScroll)
+		// console.log(1)
 	},
 	// 解绑
 	deactivated () {
