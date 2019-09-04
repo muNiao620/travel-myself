@@ -4,10 +4,13 @@
 		热销推荐
 		</div>
 		<ul class="ul-left">
-			<li
+			<!-- 详情页跳转 -->
+			<router-link
+				tag="li"
 				class="item border-bottom"
 				v-for="(item, index) of list"
-				:key='index'>
+				:key='index'
+				:to="'/detail/' + item.id">
 				<img
 					class="item-mg"
 					:src="item.imgUrl"
@@ -23,7 +26,7 @@
 						查看详情
 					</button>
 				</div>
-			</li>
+			</router-link>
 		</ul>
 	</div>
 	
