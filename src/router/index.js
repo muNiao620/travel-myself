@@ -27,5 +27,10 @@ export default new Router({
       name: 'Detail',
       component: Detail
     }
-  ]
+  ],
+  // vue-router的滚动行为，解决多页面滚动互相影响
+  scrollBehavior (to, from, savedPosition) {
+    // 表示每次新进页面的时候，始终回到最顶部
+    return { x: 0, y: 0 }
+  }
 })
