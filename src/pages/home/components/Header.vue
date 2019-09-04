@@ -12,9 +12,9 @@
 			<div class="header-right">
 				<!-- {{this.city}} -->
 				<!-- {{this.$store.state.city}} -->
-				<!-- {{this.city}} -->
+				{{this.city}}
 				<!-- 显示两个地方 -->
-				{{this.doubleCity}}
+				<!-- {{this.doubleCity}} -->
 				<span class="iconfont arrow-icon">&#xe64a;</span>
 			</div>
 		</router-link>
@@ -29,7 +29,7 @@ export default {
 	computed: {
 		// ...表示扩展运算符，表示把mapState中city映射到计算属性当中
 		...mapState(['city']),
-		...mapGetters(['doubleCity'])
+		// ...mapGetters(['doubleCity'])
 	}
 	// props: {
 	// 	city: String
